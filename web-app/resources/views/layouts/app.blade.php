@@ -14,8 +14,19 @@
         .btn-di { background: var(--di-primary); border-color: var(--di-primary); color: #fff; }
         .btn-di:hover { background: #163a5a; color: #fff; }
         .text-di { color: var(--di-primary); }
-        .stat-card .value { font-size: 1.9rem; font-weight: 600; color: var(--di-primary); }
+        h1, h2, h3, .h4, .h5, .h6 { text-wrap: balance; }
+        p, li { text-wrap: pretty; }
+        .tabular-nums { font-variant-numeric: tabular-nums; }
+        .stat-card .label { font-size: .8125rem; color: var(--bs-secondary-color); }
+        .stat-card .value { font-size: 1.75rem; font-weight: 600; line-height: 1.2; color: var(--di-primary); font-variant-numeric: tabular-nums; }
+        .stat-card .hint { font-size: .8125rem; color: var(--bs-secondary-color); }
+        .chart-box { position: relative; height: 280px; }
+        .legend-dot { display: inline-block; width: .625rem; height: .625rem; border-radius: 50%; vertical-align: baseline; }
         .risk-rendah { background: #198754; } .risk-sedang { background: #FFC107; } .risk-tinggi { background: #DC3545; }
+        .progress-bar { transition: none; }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0s !important; transition-duration: 0s !important; scroll-behavior: auto !important; }
+        }
     </style>
     @stack('head')
 </head>
@@ -24,7 +35,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark navbar-di mb-4">
     <div class="container">
         <a class="navbar-brand fw-semibold" href="{{ route('home') }}"><i class="bi bi-building"></i> DormInsight</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Buka menu"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="nav">
             <ul class="navbar-nav me-auto">
                 @if(auth()->user()->hasRole('mahasiswa'))

@@ -21,6 +21,21 @@ class DashboardTest extends TestCase
             ->assertSee('Analisis ML belum dijalankan')->assertSee('Skor rata-rata per faktor');
     }
 
+    public function test_dashboard_menampilkan_aksi_lanjut_dan_konteks_target(): void
+    {
+        $this->seed(DemoResponsesSeeder::class);
+        $survey = Survey::firstWhere('status', 'closed');
+
+        $this->actingAs(User::factory()->role('admin')->create())
+            ->get(route('dashboard', ['survey' => $survey->id]))->assertOk()
+            ->assertSee('Jalankan analisis')->assertSee(route('admin.analyses.index', $survey), false)
+            ->assertSee('Minimum analisis');
+
+        $this->actingAs(User::factory()->role('pengelola')->create())
+            ->get(route('dashboard', ['survey' => $survey->id]))->assertOk()
+            ->assertSee('Minta admin menjalankan analisis')->assertDontSee('Jalankan analisis</a>', false);
+    }
+
     public function test_segmen_kecil_disembunyikan(): void
     {
         $this->seed(DemoResponsesSeeder::class);
