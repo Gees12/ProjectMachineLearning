@@ -7,7 +7,6 @@ services:
     runtime: docker
     plan: free
     region: singapore
-    rootDir: ml-service
     dockerfilePath: ./ml-service/Dockerfile
     dockerContext: ./ml-service
     healthCheckPath: /health
@@ -21,7 +20,6 @@ services:
     runtime: docker
     plan: free
     region: singapore
-    rootDir: backend
     dockerfilePath: ./backend/Dockerfile
     dockerContext: ./backend
     healthCheckPath: /up
