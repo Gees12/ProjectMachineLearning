@@ -121,6 +121,7 @@ Prioritas: M = Must, S = Should, C = Could.
 | FR-035 | Sistem harus mencegah mahasiswa mengirim survei lebih dari satu kali per periode. | M |
 | FR-036 | Sistem harus menyimpan catatan "sudah mengisi" terpisah dari jawaban, sehingga jawaban tidak memiliki relasi ke akun mahasiswa. | M |
 | FR-037 | Sistem harus menolak pengiriman setelah tanggal tutup survei. | M |
+| FR-038 | Beranda mahasiswa harus menampilkan sisa waktu survei aktif, progres partisipasi penghuni secara agregat (jumlah pengisi dibanding populasi dan target minimum), serta riwayat partisipasi pribadi tanpa isi jawaban. | S |
 
 ### 3.5 Data Management (DAT)
 
@@ -298,7 +299,7 @@ ERD lengkap dan Data Dictionary dibuat di Fase 3.
 | F-01 Autentikasi | FR-001 sampai FR-005 |
 | F-02 Manajemen akun | FR-010 sampai FR-018 |
 | F-03 Manajemen survei | FR-020 sampai FR-027 |
-| F-04 Pengisian survei | FR-030 sampai FR-037 |
+| F-04 Pengisian survei | FR-030 sampai FR-038 |
 | F-05 Manajemen data | FR-040 sampai FR-044 |
 | F-06 Analisis ML | FR-050 sampai FR-055 |
 | F-07 Dashboard | FR-060 sampai FR-065, FR-068 |

@@ -64,6 +64,7 @@ Kode khusus DormInsight di `backend/` diletakkan di atas kerangka Laravel standa
 | FR-031, FR-033 Per bagian + tinjau | `student/fill.blade.php` (stepper JavaScript) |
 | FR-035, FR-036, NFR-010 Anonim, sekali per periode | `SubmissionService` (satu transaksi, unique `survey_id,user_id`) |
 | FR-037 Tolak setelah tutup | `Survey::isOpenForSubmission()` |
+| FR-038 Beranda mahasiswa | `SubmissionController@index`, `SubmissionController::remainingText()`, `student/index.blade.php` |
 | FR-042, FR-043 Respons mencurigakan | `ResponseValidator`, `ResponseController@toggleValidity` |
 | FR-044 Ekspor CSV anonim | `ResponseController@export` |
 | FR-050 sampai FR-055 Analisis ML | `AnalysisService` |
@@ -124,6 +125,7 @@ Kode khusus DormInsight di `backend/` diletakkan di atas kerangka Laravel standa
 | `tests/Feature/AnalysisTest.php` | Analisis sukses (ML dipalsukan), ML mati, fitur tidak cocok, survei belum tutup, dashboard + peringatan dummy |
 | `tests/Feature/DashboardTest.php` | Dashboard tanpa analisis, segmen kecil disembunyikan, unduh PDF/Excel, ekspor CSV anonim |
 | `tests/Feature/RegistrationTest.php` | Pendaftaran, menunggu persetujuan, setujui/tolak, NIM/email ganda, password lemah, domain email, mode tanpa persetujuan, pendaftaran dimatikan, peran selalu Mahasiswa |
+| `tests/Feature/StudentHomeTest.php` | Sisa waktu, progres partisipasi dan target, riwayat hanya milik sendiri tanpa jawaban, beranda tanpa survei aktif, format teks sisa waktu |
 | `tests/Unit/FeatureBuilderTest.php` | Rata-rata skor faktor, kolom terlarang, pembulatan sama dengan Python |
 
 Jalankan: `php artisan test` (backend) dan `pytest -q` (ml-service).

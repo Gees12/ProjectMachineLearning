@@ -21,11 +21,52 @@ class SubmissionController extends Controller
         return [$survey, $submitted];
     }
 
+    /**
+     * Beranda mahasiswa (FR-038): status dan sisa waktu survei, progres partisipasi
+     * asrama (agregat), dan riwayat partisipasi pribadi TANPA isi jawaban.
+     */
     public function index(Request $request)
     {
         [$survey, $submitted] = $this->state($request);
 
-        return view('student.index', compact('survey', 'submitted'));
+        $participation = null;
+        if ($survey) {
+            $count = SurveySubmission::where('survey_id', $survey->id)->count();
+            $population = max(1, (int) config('dorminsight.population'));
+            $participation = [
+                'count' => $count,
+                'population' => $population,
+                'percent' => min(100, (int) round($count / $population * 100)),
+                'target' => (int) config('dorminsight.min_valid_responses'),
+            ];
+        }
+
+        $history = SurveySubmission::with('survey:id,title,open_at,close_at')
+            ->where('user_id', $request->user()->id)
+            ->orderByDesc('submitted_date')
+            ->get();
+
+        $remaining = $survey ? self::remainingText($survey->close_at) : null;
+
+        return view('student.index', compact('survey', 'submitted', 'participation', 'history', 'remaining'));
+    }
+
+    /** Teks sisa waktu dalam Bahasa Indonesia, mis. "3 hari 4 jam". */
+    public static function remainingText(\DateTimeInterface $until): string
+    {
+        $seconds = $until->getTimestamp() - now()->getTimestamp();
+        if ($seconds <= 0) {
+            return 'sudah ditutup';
+        }
+        $days = intdiv($seconds, 86400);
+        $hours = intdiv($seconds % 86400, 3600);
+        $minutes = intdiv($seconds % 3600, 60);
+
+        return match (true) {
+            $days > 0 => $days.' hari'.($hours ? " {$hours} jam" : ''),
+            $hours > 0 => $hours.' jam'.($minutes ? " {$minutes} menit" : ''),
+            default => max(1, $minutes).' menit',
+        };
     }
 
     public function consent(Request $request)

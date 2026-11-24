@@ -55,6 +55,13 @@ Estimasi memakai story point (1, 2, 3, 5, 8). Setiap story menjadi issue di GitH
 | US-12 | Sebagai mahasiswa, saya ingin meninjau jawaban sebelum mengirim agar tidak ada jawaban yang salah pilih. | S | 2 | Cheryl | FR-033 |
 | US-13 | Sebagai mahasiswa, saya ingin mendapat konfirmasi bahwa survei sudah terkirim agar saya tahu kewajiban saya selesai. | M | 1 | Cheryl | FR-035 |
 
+| US-28 | Sebagai mahasiswa, saya ingin melihat sisa waktu survei, berapa penghuni yang sudah mengisi, dan riwayat partisipasi saya agar saya tahu kontribusi saya berarti dan tidak terlewat batas waktu. | S | 3 | Cheryl, Geraldo | FR-038 |
+
+**Acceptance criteria US-28:**
+- Survei aktif menampilkan hitung mundur ("Ditutup dalam 3 hari 4 jam") yang diperbarui otomatis.
+- Progres menampilkan "X dari 300 penghuni sudah mengisi" beserta penanda target minimum 100.
+- Riwayat hanya berisi survei yang pernah diikuti mahasiswa tersebut dan tanggalnya; isi jawaban tidak ditampilkan.
+
 **Acceptance criteria US-11:**
 - Survei tampil rapi di layar ponsel 360 px.
 - Tombol kirim hanya aktif jika semua pertanyaan wajib terjawab.
@@ -98,5 +105,5 @@ Estimasi memakai story point (1, 2, 3, 5, 8). Setiap story menjadi issue di GitH
 | Prioritas | Jumlah Story | Total SP |
 |---|---|---|
 | Must | 17 | 52 |
-| Should | 10 | 33 |
-| **Total** | **27** | **85** |
+| Should | 11 | 36 |
+| **Total** | **28** | **88** |
