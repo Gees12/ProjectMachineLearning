@@ -18,8 +18,8 @@ Sistem untuk menganalisis kepuasan mahasiswa asrama dan mengidentifikasi faktor 
 ```
 DormInsight/
 ├── docs/          Dokumentasi per fase SDLC (01 sampai 08)
-├── frontend/      Tampilan aplikasi
-├── backend/       Aplikasi Laravel
+├── web-app/       Aplikasi web Laravel: tampilan (Blade), logika, database, integrasi ML
+├── design/        Aset desain UI/UX: wireframe, ekspor Figma, screenshot
 ├── database/      Skema dan migrasi MySQL
 ├── ml-service/    FastAPI + pipeline Machine Learning
 └── README.md
@@ -70,10 +70,10 @@ python -m src.train --data data/dummy/dummy_survey.csv --data-source dummy
 uvicorn app.main:app --port 8001
 ```
 
-**Aplikasi web** (terminal baru, detail: `backend/README.md`):
+**Aplikasi web** (terminal baru, detail: `web-app/README.md`):
 
 ```powershell
-cd backend
+cd web-app
 powershell -ExecutionPolicy Bypass -File .\setup.ps1
 # buat database MySQL "dorminsight", sesuaikan DB_* dan ML_API_KEY di .env
 php artisan migrate --seed

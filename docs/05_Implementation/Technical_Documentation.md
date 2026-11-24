@@ -22,14 +22,14 @@
 
 ```
 DormInsight/
-├── backend/        Aplikasi Laravel (kode DormInsight + setup.ps1)
+├── web-app/        Aplikasi web Laravel lengkap (tampilan + logika + setup.ps1)
 ├── ml-service/     FastAPI + pipeline ML
-├── frontend/       Aset desain dan ekspor Figma
+├── design/         Aset desain UI/UX dan ekspor Figma
 ├── database/       Dump dan skrip backup
 └── docs/
 ```
 
-Kode khusus DormInsight di `backend/` diletakkan di atas kerangka Laravel standar. `setup.ps1` memasang kerangka Laravel tanpa menimpa file DormInsight. Detail di `backend/README.md`.
+Kode khusus DormInsight di `web-app/` diletakkan di atas kerangka Laravel standar. `setup.ps1` memasang kerangka Laravel tanpa menimpa file DormInsight. Detail di `web-app/README.md`.
 
 ## 3. Pemetaan Modul ke Kode
 
@@ -128,7 +128,7 @@ Kode khusus DormInsight di `backend/` diletakkan di atas kerangka Laravel standa
 | `tests/Feature/StudentHomeTest.php` | Sisa waktu, progres partisipasi dan target, riwayat hanya milik sendiri tanpa jawaban, beranda tanpa survei aktif, format teks sisa waktu |
 | `tests/Unit/FeatureBuilderTest.php` | Rata-rata skor faktor, kolom terlarang, pembulatan sama dengan Python |
 
-Jalankan: `php artisan test` (backend) dan `pytest -q` (ml-service).
+Jalankan: `php artisan test` (web-app) dan `pytest -q` (ml-service).
 
 **Status verifikasi:** seluruh test Laravel lulus di laptop tim (lihat bagian 9). Aplikasi juga sudah dijalankan dan halaman login, dashboard, perbandingan, simulasi, survei, dan manajemen akun tampil sesuai rancangan.
 

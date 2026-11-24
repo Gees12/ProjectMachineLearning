@@ -11,10 +11,10 @@ ml-service/data/processed/*
 !ml-service/data/**/.gitkeep
 
 # Laravel
-backend/vendor/
-backend/node_modules/
-backend/.env
-backend/storage/*.key
+web-app/vendor/
+web-app/node_modules/
+web-app/.env
+web-app/storage/*.key
 
 # Backup database (berisi data survei asli)
 database/*.sql

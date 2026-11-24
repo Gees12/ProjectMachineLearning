@@ -20,8 +20,8 @@ services:
     runtime: docker
     plan: free
     region: singapore
-    dockerfilePath: ./backend/Dockerfile
-    dockerContext: ./backend
+    dockerfilePath: ./web-app/Dockerfile
+    dockerContext: ./web-app
     healthCheckPath: /up
     envVars:
       - key: APP_KEY

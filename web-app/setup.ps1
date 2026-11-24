@@ -4,7 +4,7 @@
 # Laravel 12 standar, menggabungkannya TANPA menimpa file DormInsight,
 # lalu memasang paket tambahan.
 #
-# Pemakaian (di folder backend):
+# Pemakaian (di folder web-app):
 #   powershell -ExecutionPolicy Bypass -File .\setup.ps1
 
 $ErrorActionPreference = 'Stop'

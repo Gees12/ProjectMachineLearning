@@ -30,7 +30,7 @@ flowchart LR
 
 | Kebutuhan | Keterangan |
 |---|---|
-| Kode di GitHub | Repository `Gees12/ProjectMachineLearning` berisi seluruh folder project, **termasuk** `backend/composer.json`, `backend/composer.lock`, dan `ml-service/models/model.joblib` |
+| Kode di GitHub | Repository `Gees12/ProjectMachineLearning` berisi seluruh folder project, **termasuk** `web-app/composer.json`, `web-app/composer.lock`, dan `ml-service/models/model.joblib` |
 | Akun Neon | https://neon.com (bisa login dengan GitHub) |
 | Akun Render | https://render.com (bisa login dengan GitHub) |
 

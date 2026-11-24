@@ -27,7 +27,7 @@ Tidak perlu Node.js/npm: Bootstrap, ikon, dan Chart.js dimuat dari CDN.
 ## Instalasi (Windows)
 
 ```powershell
-cd backend
+cd web-app
 powershell -ExecutionPolicy Bypass -File .\setup.ps1
 ```
 
@@ -73,7 +73,7 @@ Terminal 1 (folder `ml-service`):
 uvicorn app.main:app --port 8001
 ```
 
-Terminal 2 (folder `backend`):
+Terminal 2 (folder `web-app`):
 
 ```powershell
 php artisan serve

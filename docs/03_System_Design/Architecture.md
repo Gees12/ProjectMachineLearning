@@ -175,13 +175,13 @@ Catatan: layanan gratis dapat "tidur" saat tidak digunakan. `MlClient` memakai t
 
 ```
 DormInsight/
-├── backend/            Laravel (termasuk Blade views; folder frontend/ berisi aset desain)
+├── web-app/            Aplikasi web Laravel lengkap: tampilan Blade, controller, service, database
 │   ├── app/Http/Controllers/
 │   ├── app/Services/
 │   ├── app/Models/
 │   ├── database/migrations/
 │   └── resources/views/
-├── frontend/           Aset desain, ekspor Figma, panduan UI
+├── design/             Aset desain UI/UX: wireframe, ekspor Figma, screenshot
 ├── database/           Dump SQL, seeder data dummy, skrip backup
 ├── ml-service/
 │   ├── app/            FastAPI
@@ -192,7 +192,7 @@ DormInsight/
 └── docs/
 ```
 
-Catatan: karena Blade adalah bagian dari Laravel, kode tampilan berada di `backend/resources/views/`. Folder `frontend/` dipakai untuk aset desain dan dokumentasi UI.
+Catatan: karena Blade adalah bagian dari Laravel, kode tampilan (frontend) dan logika server (backend) berada dalam satu aplikasi di `web-app/`; kode tampilan ada di `web-app/resources/views/`. Folder `design/` hanya berisi aset desain dan tidak di-deploy. Nama folder diubah dari `backend/` dan `frontend/` pada 25 November 2026 agar sesuai isinya.
 
 ## 10. Keputusan Desain (Architecture Decision Record Ringkas)
 
