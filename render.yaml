@@ -1,0 +1,84 @@
+# Blueprint Render untuk DormInsight.
+# Render > New > Blueprint > pilih repository ini. Panduan: docs/07_Deployment/Deployment_Guide.md
+services:
+  # ML service (FastAPI + model). Dibuat lebih dulu karena web app memakai API key-nya.
+  - type: web
+    name: dorminsight-ml
+    runtime: docker
+    plan: free
+    region: singapore
+    rootDir: ml-service
+    dockerfilePath: ./ml-service/Dockerfile
+    dockerContext: ./ml-service
+    healthCheckPath: /health
+    envVars:
+      - key: ML_API_KEY
+        generateValue: true
+
+  # Aplikasi web (Laravel)
+  - type: web
+    name: dorminsight-web
+    runtime: docker
+    plan: free
+    region: singapore
+    rootDir: backend
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    healthCheckPath: /up
+    envVars:
+      - key: APP_KEY
+        generateValue: true
+      - key: APP_NAME
+        value: DormInsight
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_URL
+        sync: false
+      - key: APP_TIMEZONE
+        value: Asia/Makassar
+      - key: APP_LOCALE
+        value: id
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: LOG_LEVEL
+        value: warning
+      # Connection string Neon (koneksi langsung, BUKAN yang berakhiran -pooler)
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_URL
+        sync: false
+      - key: SESSION_DRIVER
+        value: database
+      - key: SESSION_SECURE_COOKIE
+        value: "true"
+      - key: CACHE_STORE
+        value: database
+      - key: QUEUE_CONNECTION
+        value: sync
+      # URL publik ML service, mis. https://dorminsight-ml.onrender.com
+      - key: ML_SERVICE_URL
+        sync: false
+      - key: ML_API_KEY
+        fromService:
+          type: web
+          name: dorminsight-ml
+          envVarKey: ML_API_KEY
+      # Lebih panjang karena ML service gratis butuh sekitar 1 menit untuk bangun
+      - key: ML_TIMEOUT
+        value: "120"
+      - key: ADMIN_EMAIL
+        value: admin@dorminsight.test
+      # Password awal admin; lihat nilainya di tab Environment, lalu ganti saat login pertama
+      - key: ADMIN_INITIAL_PASSWORD
+        generateValue: true
+      - key: DORM_POPULATION
+        value: "300"
+      - key: DORM_REGISTRATION_ENABLED
+        value: "true"
+      - key: DORM_REGISTRATION_REQUIRE_APPROVAL
+        value: "true"
+      # true = buat survei [DEMO] berisi data dummy (sekali saja). Ubah ke false untuk pemakaian sungguhan.
+      - key: SEED_DEMO
+        value: "true"

@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Data mahasiswa (privasi)
+ml-service/data/raw/*
+ml-service/data/processed/*
+!ml-service/data/**/.gitkeep
+
+# Laravel
+backend/vendor/
+backend/node_modules/
+backend/.env
+backend/storage/*.key
+
+# Backup database (berisi data survei asli)
+database/*.sql
+database/*.sql.gz
+*.dump
+
+# Env & OS
+.env
+.DS_Store
+Thumbs.db
+.vscode/

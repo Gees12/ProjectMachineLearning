@@ -1,0 +1,25 @@
+{
+  "n_rows": 150,
+  "n_valid": 145,
+  "n_invalid": 5,
+  "missing_values": 0,
+  "target_counts": {
+    "0": 93,
+    "1": 52
+  },
+  "positive_rate": 0.3586,
+  "segment_counts": {
+    "ANGKATAN": {
+      "2025": 44,
+      "2024": 42,
+      "2026": 31,
+      "2023_atau_sebelumnya": 28
+    },
+    "LAMA_TINGGAL": {
+      "1_2": 59,
+      "lt1": 53,
+      "gt2": 33
+    }
+  },
+  "small_segments_below_5": []
+}

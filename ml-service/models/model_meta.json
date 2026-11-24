@@ -1,0 +1,131 @@
+{
+  "model_version": "lr-0.1.0-dummy",
+  "algorithm": "LogisticRegression",
+  "trained_at": "2026-11-23T12:44:33+08:00",
+  "data_source": "dummy",
+  "data_file": "data/dummy/dummy_survey.csv",
+  "data_sufficient": true,
+  "features": [
+    "F_FAS",
+    "F_KEB",
+    "F_MAK",
+    "F_BIA",
+    "F_PER",
+    "F_PRI",
+    "F_KEA",
+    "F_SOS",
+    "F_PEL",
+    "F_BEL",
+    "ANGKATAN",
+    "LAMA_TINGGAL"
+  ],
+  "target": "INGIN_KELUAR",
+  "risk_thresholds": {
+    "sedang": 0.4,
+    "tinggi": 0.7
+  },
+  "best_params": {
+    "C": 0.1
+  },
+  "metrics": {
+    "cv_folds": 5,
+    "cv_method": "nested stratified 5-fold (inner 3-fold grid search)",
+    "n_train": 145,
+    "positive_rate": 0.3586,
+    "accuracy": 0.7379,
+    "balanced_accuracy": 0.7301,
+    "precision_keluar": 0.6275,
+    "recall_keluar": 0.6964,
+    "f1_keluar": 0.6549,
+    "f1_keluar_std": 0.1034,
+    "roc_auc": 0.8169,
+    "baseline_f1_keluar": 0.0
+  },
+  "global_shap": [
+    {
+      "code": "F_KEB",
+      "mean_abs_shap": 0.40216,
+      "direction": "negatif",
+      "rank": 1,
+      "top3_frequency": 0.6
+    },
+    {
+      "code": "F_PRI",
+      "mean_abs_shap": 0.3724,
+      "direction": "negatif",
+      "rank": 2,
+      "top3_frequency": 0.633
+    },
+    {
+      "code": "F_MAK",
+      "mean_abs_shap": 0.34009,
+      "direction": "negatif",
+      "rank": 3,
+      "top3_frequency": 0.667
+    },
+    {
+      "code": "F_KEA",
+      "mean_abs_shap": 0.26063,
+      "direction": "negatif",
+      "rank": 4,
+      "top3_frequency": 0.367
+    },
+    {
+      "code": "F_BIA",
+      "mean_abs_shap": 0.21943,
+      "direction": "negatif",
+      "rank": 5,
+      "top3_frequency": 0.133
+    },
+    {
+      "code": "F_FAS",
+      "mean_abs_shap": 0.20484,
+      "direction": "negatif",
+      "rank": 6,
+      "top3_frequency": 0.3
+    },
+    {
+      "code": "F_PER",
+      "mean_abs_shap": 0.1673,
+      "direction": "negatif",
+      "rank": 7,
+      "top3_frequency": 0.133
+    },
+    {
+      "code": "F_SOS",
+      "mean_abs_shap": 0.16297,
+      "direction": "negatif",
+      "rank": 8,
+      "top3_frequency": 0.1
+    },
+    {
+      "code": "F_PEL",
+      "mean_abs_shap": 0.14511,
+      "direction": "negatif",
+      "rank": 9,
+      "top3_frequency": 0.033
+    },
+    {
+      "code": "F_BEL",
+      "mean_abs_shap": 0.09288,
+      "direction": "negatif",
+      "rank": 10,
+      "top3_frequency": 0.033
+    },
+    {
+      "code": "LAMA_TINGGAL",
+      "mean_abs_shap": 0.07114,
+      "direction": "positif",
+      "rank": 11,
+      "top3_frequency": 0.0
+    },
+    {
+      "code": "ANGKATAN",
+      "mean_abs_shap": 0.0166,
+      "direction": "campuran",
+      "rank": 12,
+      "top3_frequency": 0.0
+    }
+  ],
+  "sklearn_version": "1.9.1"
+}

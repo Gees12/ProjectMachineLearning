@@ -1,0 +1,4 @@
+# Pastikan skrip shell dan file Docker memakai akhir baris LF (Linux)
+*.sh text eol=lf
+Dockerfile text eol=lf
+*.yaml text eol=lf

@@ -1,0 +1,11 @@
+factor,name,r_item1_item2,status
+F_FAS,Fasilitas kamar,0.701,konsisten
+F_KEB,Kebersihan,0.659,konsisten
+F_MAK,Makanan / kafetaria,0.729,konsisten
+F_BIA,Biaya,0.708,konsisten
+F_PER,Peraturan asrama,0.686,konsisten
+F_PRI,Privasi,0.662,konsisten
+F_KEA,Keamanan,0.677,konsisten
+F_SOS,Lingkungan sosial,0.711,konsisten
+F_PEL,Pelayanan pengelola,0.696,konsisten
+F_BEL,Kenyamanan belajar dan internet,0.747,konsisten
